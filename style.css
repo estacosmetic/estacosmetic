@@ -669,3 +669,31 @@ width: 95%;
     right: 0;
   }
 }
+
+/*--------------------------------------------------------------
+Custom
+--------------------------------------------------------------*/
+section {
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
+}
+
+.data-info {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+    }
+
+    h2.display-4 {
+        margin-bottom: 15px;
+    }
+
+    .banner-content {
+        padding-top: 10px !important;
+    }
+}
