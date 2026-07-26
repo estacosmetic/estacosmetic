@@ -697,3 +697,17 @@ section {
         padding-top: 10px !important;
     }
 }
+
+/*--------------------------------------------------------------
+Custom 2
+--------------------------------------------------------------*/
+.info-element table td,
+.info-element table th {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.price-box {
+    margin-top: 5px !important;
+    margin-bottom: 10px !important;
+}
