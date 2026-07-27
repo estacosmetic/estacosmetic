@@ -462,12 +462,20 @@
       <div class="row g-5 py-4">
         <div class="col-lg-6">
           <!--
-            LEAD FORM: this is a static HTML form with no backend attached.
-            Connect the `action` attribute to a form handler such as Formspree,
-            Netlify Forms, Google Forms, or your CRM/API endpoint so submissions
-            actually reach you and can be tracked as Google Ads conversions.
+            LEAD FORM — connected to Formspree (works on static GitHub Pages hosting).
+            SETUP (takes ~2 minutes):
+              1. Go to https://formspree.io and sign up free.
+              2. Create a new form, it gives you an endpoint like:
+                 https://formspree.io/f/xxxxabcd
+              3. Replace YOUR_FORM_ID below with that ID (the part after /f/).
+              4. Submit the form once from your live site to confirm/activate it
+                 (Formspree sends a one-time verification step the first time).
+            Free tier includes 50 submissions/month, sends straight to your email.
           -->
-          <form id="lead-form" action="#" method="POST">
+          <form id="lead-form" action="https://formspree.io/f/xpqvkrze" method="POST">
+            <input type="hidden" name="_subject" value="New Profhilo quote request">
+            <!-- Optional: uncomment and set your real domain to redirect back to your site after submit -->
+            <!-- <input type="hidden" name="_next" value="https://yourdomain.com/#contact"> -->
             <div class="mb-3">
               <label for="name" class="form-label">Full Name</label>
               <input type="text" class="form-control" id="name" name="name" required>
