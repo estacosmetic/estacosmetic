@@ -55,7 +55,6 @@
     "name": "Esta Cosmetic",
     "url": "https://estacosmetic.com",
     "description": "Esta Cosmetic is a trusted supplier of Profhilo and premium aesthetic products for doctors and clinics across Europe.",
-    "email": "info@estacosmetic.com",
     "telephone": "+00-000-000-0000"
   }
   </script>
@@ -232,6 +231,11 @@
 
   </ul>
 </nav>
+        </div>
+        <div class="mt-5">
+          <div class="email-links">
+            <a id="header-email-link" href="#" class="py-3 my-3 border-bottom d-flex">Email Us</a>
+          </div>
         </div>
       </div>
     </header>
@@ -467,10 +471,17 @@
                  (Formspree sends a one-time verification step the first time).
             Free tier includes 50 submissions/month, sends straight to your email.
           -->
-          <form id="lead-form" action="https://formspree.io/f/xpqvkrze" method="POST">
+          <form id="lead-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
             <input type="hidden" name="_subject" value="New Profhilo quote request">
             <!-- Redirects visitor back to the site's home section after a successful submit -->
             <input type="hidden" name="_next" value="https://estacosmetic.github.io/estacosmetic/#home">
+            <!--
+              Honeypot field for spam protection. Real visitors never see or
+              fill this (hidden via CSS below), but simple spam bots that
+              auto-fill every field will, and Formspree silently discards
+              any submission where this field is non-empty.
+            -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
             <div class="mb-3">
               <label for="name" class="form-label">Full Name</label>
               <input type="text" class="form-control" id="name" name="name" required>
@@ -503,9 +514,7 @@
           <div class="data-info py-4">
             <p>
               <strong>Email:</strong><br>
-              <a href="mailto:&#105;&#110;&#102;&#111;&#64;&#101;&#115;&#116;&#97;&#99;&#111;&#115;&#109;&#101;&#116;&#105;&#99;&#46;&#99;&#111;&#109;">
-                &#105;&#110;&#102;&#111;&#64;&#101;&#115;&#116;&#97;&#99;&#111;&#115;&#109;&#101;&#116;&#105;&#99;&#46;&#99;&#111;&#109;
-              </a>
+              <a id="contact-email-link" href="#">Loading...</a>
             </p>
 
             <!-- PLACEHOLDER PHONE NUMBER: replace with your real business number -->
@@ -545,6 +554,33 @@
     crossorigin="anonymous"></script>
   <script src="js/plugins.js"></script>
   <script src="js/script.js"></script>
+
+  <script>
+    // Email is assembled here at runtime instead of appearing anywhere in the
+    // page source as plain text or HTML entities. Bots that only read the raw
+    // HTML/JSON (most scrapers, including ones that parse structured data)
+    // never see a usable address. This does not stop every scraper (one that
+    // fully executes JS still can), but it removes the address from every
+    // static and structured-data surface of the page.
+    (function () {
+      var user = "info";
+      var domain = "estacosmetic.com";
+      var email = user + "@" + domain;
+      var mailto = "mailto:" + email;
+
+      var headerLink = document.getElementById("header-email-link");
+      if (headerLink) {
+        headerLink.href = mailto;
+        headerLink.textContent = email;
+      }
+
+      var contactLink = document.getElementById("contact-email-link");
+      if (contactLink) {
+        contactLink.href = mailto;
+        contactLink.textContent = email;
+      }
+    })();
+  </script>
 </body>
 
 </html>
