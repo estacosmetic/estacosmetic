@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Home Page -->
+  <url>
+    <loc>https://estacosmetic.store/</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Anchor sections to help crawlers understand page structure -->
+  <url>
+    <loc>https://estacosmetic.store/#about-us</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://estacosmetic.store/#faq</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://estacosmetic.store/#contact</loc>
+    <priority>0.7</priority>
+  </url>
+</urlset>
